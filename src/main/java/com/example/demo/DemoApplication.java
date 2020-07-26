@@ -1,19 +1,26 @@
 package com.example.demo;
 
-import org.apache.juli.logging.Log;
-import org.apache.juli.logging.LogFactory;
+import org.apache.log4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class DemoApplication {
-    private static Log logger = LogFactory.getLog(DemoApplication.class);
+    private static Logger logger = Logger.getLogger("ingo");
 
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
-        logger.error("333");
-        logger.info("信息");
+        logger.info("2222");
+        try {
+            Integer a = 1 / 0;
+        } catch (Exception e) {
+
+            logger.error(e.getMessage());
+
+        }
+
 
     }
+
 
 }
